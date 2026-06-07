@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Executa sempre que você atualizar a branch principal
+
+permissions:
+  contents: write # Permissão para escrever e publicar a branch gh-pages
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código-Fonte
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar Dependências
+        run: npm ci || npm install
+
+      - name: Compilar Aplicação (Vite Build)
+        run: npm run build
+
+      - name: Publicar no GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Pasta que o Vite gera com o código pronto para o navegador
+          branch: gh-pages # Branch especial onde os arquivos compilados serão salvos
