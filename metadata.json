@@ -1,0 +1,6 @@
+{
+  "name": "PitStop Comandas",
+  "description": "Sistema completo e elegante para gerenciamento de comandas e consumo, com painel financeiro em tempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
