@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Redefine slate variables for stunning high-contrast, polished modern Dark Mode with premium gold highlights */
+  --color-slate-950: #050508; /* Deepest luxurious dark backdrop background */
+  --color-slate-900: #0d0f17; /* Sophisticated dark charcoal card/surface background */
+  --color-slate-850: #151824; /* Table headers, active controls & container grids */
+  --color-slate-800: #202538; /* Micro-borders, grid lines, and subtle dividers */
+  --color-slate-700: #2c324c; /* Active selection rings & non-critical interactive elements */
+  --color-slate-600: #475569; /* Elegant muted text, placeholders, and captions */
+  --color-slate-500: #64748b; /* Secondary utility text and helper indicators */
+  --color-slate-400: #94a3b8; /* Medium emphasis labels and subtle details */
+  --color-slate-300: #cbd5e1; /* Main highly readable body text */
+  --color-slate-200: #e2e8f0; /* Subheadings, section titles, and highlighted titles */
+  --color-slate-100: #f8fafc; /* Crisp absolute-contrast white headlines and key text */
+
+  /* Map the gold/accent variables directly onto beautiful premium authentic Gold elements */
+  --color-gold-50: #fffbeb;
+  --color-gold-100: #fef3c7;
+  --color-gold-200: #fde68a;
+  --color-gold-300: #fcd34d;
+  --color-gold-400: #fbbf24; /* Authentic Brand Gold */
+  --color-gold-500: #d97706; /* Solid legibility Highlight Gold */
+  --color-gold-600: #b45309;
+  --color-gold-700: #78350f;
+  --color-gold-800: #451a03;
+  --color-gold-900: #2e1002;
+  --color-gold-950: #180500;
+}
+
+/* Custom Scrollbar styled for premium gold theme */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.5);
+}
+
+/* Base Body configuration to reinforce clean dark backdrop and high readability text */
+html, body, #root {
+  background-color: #050508 !important;
+  color: #f8fafc !important;
+}
+
+/* Subtle elevation and drop shadows on cards for high depth */
+.bg-slate-900 {
+  background-color: #0d0f17 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45), 0 1px 4px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Golden glowing animations and premium styling helpers */
+.gold-glow {
+  box-shadow: 0 10px 30px -5px rgba(251, 191, 36, 0.08), 0 0 0 1px rgba(251, 191, 36, 0.18) !important;
+  border-color: rgba(251, 191, 36, 0.25) !important;
+}
+
+.gold-glow-strong {
+  box-shadow: 0 12px 35px -5px rgba(251, 191, 36, 0.12), 0 0 0 2px rgba(251, 191, 36, 0.3) !important;
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+/* Tema V3 definitivo: premium, mas leve.
+   As bolhas animadas foram desativadas para evitar consumo desnecessário
+   de CPU/GPU em celular durante movimento de clientes. */
+.beer-bubble {
+  display: none !important;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; }
+  to { opacity: 0; }
+}
+
+/* Specific Sidebar Overrides matching our beautiful professional gold-accented dark sidebar */
+#sidebar-container {
+  background-color: #07080d !important;
+  border-right: 1px solid #1c1e2b !important;
+}
+
+#sidebar-container h1 {
+  color: #ffffff !important;
+}
+
+#sidebar-container span {
+  color: #94a3b8 !important;
+}
+
+#sidebar-container button {
+  color: #94a3b8 !important;
+}
+
+#sidebar-container button:hover {
+  background-color: rgba(251, 191, 36, 0.08) !important;
+  color: #fbbf24 !important;
+}
+
+/* If item is active with layoutId, active indicator forces gold, text and icons flip to dark black for extreme readability */
+#sidebar-container button:has(div.z-0) {
+  color: #050508 !important;
+}
+
+#sidebar-container button:has(div.z-0) span {
+  color: #050508 !important;
+}
+
+#sidebar-container button:has(div.z-0) svg {
+  color: #050508 !important;
+}
+
+/* Floating custom match box picker dropdown (must contrast visually with backgrounds) */
+.absolute.left-0.right-0.mt-1.bg-slate-950 {
+  background-color: #0d0f17 !important;
+  border: 1px solid #202538 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
+}
+.absolute.left-0.right-0.mt-1.bg-slate-950 div {
+  color: #e2e8f0 !important;
+  border-bottom: 1px solid #1c1e2b !important;
+}
+.absolute.left-0.right-0.mt-1.bg-slate-950 div:hover {
+  background-color: rgba(251, 191, 36, 0.08) !important;
+  color: #fbbf24 !important;
+}
+
+/* Backdrops for modal dialogs must retain a high dark contrast shading to highlight dialogue boxes */
+#new-comanda-overlay,
+#flow-modal,
+[id*="overlay"],
+[id*="modal"] {
+  background-color: rgba(3, 4, 7, 0.75) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+
+/* Performance mobile: mantém o visual premium sem microtravadas. */
+@media (max-width: 768px) {
+  * {
+    scroll-behavior: auto !important;
+  }
+
+  .shadow-2xl, .shadow-xl, .shadow-lg {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32) !important;
+  }
+
+  .gold-glow, .gold-glow-strong {
+    box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.16) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
